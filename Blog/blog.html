@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+</head>
+<body>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+        <a class="navbar-brand" href="home.html">Devvrat's Blog</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample03" aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarsExample03">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item mx-4">
+              <a class="nav-link" href="home.html">Home<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active nav-item mx-4">
+              <a class="nav-link" href="blog.html">Blog</a>
+            </li>
+            <li class="nav-item mx-4">
+                <a class="nav-link" href="contact.html">Contact Us</a>
+            </li>
+            <li class="nav-item mx-4">
+                <a class="nav-link" href="about.html">About Us</a>
+            </li>
+            
+          </ul>
+        </div>
+      </nav>
+
+      <div class="container mt-4">
+        <div class="jumbotron p-4 p-md-5 text-white rounded bg-dark">
+            <div class="col-md-6 px-0">
+              <h1>Welcome to Devvrat's blog</h1>
+              <p class="lead my-3">You can read all blogs about our company here.</p>
+            </div>
+          </div>
+          
+          <div class="container px-0">
+            <div class="card">
+                <div class="card-body">
+                <h4>Add a new Blog</h4>
+                <div class="form-group">
+                    <label for="titleInput">Title</label>
+                    <input type="text" class="form-control" id="titleInput" placeholder="Enter a Title">
+                </div>
+                <div id="titleErr" class="alert alert-danger" style="display:none" role="alert">Please add a title to the Blog</div>
+
+                <div class="form-group">
+                    <label for="authorInput">Author</label>
+                    <input type="text" class="form-control" id="authorInput" placeholder="Enter the author">
+                </div>
+                
+                <div class="form-group">
+                    <label for="textInput">Blog</label>
+                    <textarea rows="4" class="form-control" id="textInput" placeholder="Enter your Blog here"></textarea>
+                </div>
+                <div id="textErr" class="alert alert-danger" style="display:none" role="alert">Please enter the Blog</div>
+                <button id="blogSubmit" onclick="blogSubmit()" class="btn btn-lg btn-primary">Submit</button>
+                </div>
+            </div>
+
+            <br>
+            <div id="blogPosts">
+            <br>
+
+
+
+            <div class="singlePost">
+              <br>
+              <div class="card">
+              <div class="card-body">
+                <div class="row title-row">
+                  <div class="col-4"><h1 class="blogTitle">WhatsApp is now delivering roughly 100 billion messages a day</h1></div>
+                  <div class="col-4"></div>
+                  <div class="col-2"></div>
+                  <div class="col-2"><button onclick="blogEditToggle(this)" class="btn btn-sm btn-info m-1">Edit</button> <button onclick="blogDelete(this)" class="btn btn-sm btn-danger m-1">Delete</button></div>
+                </div>
+              
+              <i class="text-muted">by Manish Singh</i><br/><br/>
+              <p class="blogText">WhatsApp,  the popular instant messaging app owned by Facebook,  is now delivering roughly 100 billion messages a day, the company’s chief executive Mark Zuckerberg said at the quarterly earnings call Thursday.
+
+                For some perspective, users exchanged 100 billion messages on WhatsApp last New Year’s Eve. That is the day when WhatsApp tops its engagement figures, and as many of you may remember, also the time when the service customarily suffered glitches in the past years. (No outage on last New Year’s Eve!)</p>
+  
+              
+  
+  
+                <div class="editForm" style="display:none">
+                <h4>Edit</h4>
+                <div class="form-group">
+                    <label>Title</label>
+                    <input type="text" class="form-control" placeholder="Enter a Title" value="${Title}">
+                </div>
+                
+                <div class="form-group">
+                    <label>Text</label>
+                    <textarea rows="4" class="form-control" id="textInput" placeholder="Enter text">${Text}</textarea>
+                </div>
+
+                <!--The user should not have the permission to change the author-->
+  
+                <button onclick="blogEdit(this)" class="btn btn-lg btn-primary">Submit</button>
+              </div>
+              </div>    
+              </div>
+              </div>
+
+
+              <div class="singlePost">
+                <br>
+                <div class="card">
+                <div class="card-body">
+                  <div class="row title-row">
+                    <div class="col-4"><h1 class="blogTitle">PORTL Hologram raises $3M to put a hologram machine in every home</h1></div>
+                    <div class="col-4"></div>
+                    <div class="col-2"></div>
+                    <div class="col-2"><button onclick="blogEditToggle(this)" class="btn btn-sm btn-info m-1">Edit</button> <button onclick="blogDelete(this)" class="btn btn-sm btn-danger m-1">Delete</button></div>
+                  </div>
+                
+                <i class="text-muted">by Jonathan Shieber</i><br/><br/>
+                <p class="blogText">What does a hologram-obsessed entrepreneur do for a second act after setting up a virtual Ronald Reagan in the Reagan Memorial Library, or beaming Jimmy Kimmel all the way from Hollywood to the Country Music Awards in Nashville?
+
+                    If that entrepreneur is David Nussbaum, the founder of PORTL Hologram, the next logical step is to build a machine that can bring the joy of hologram-based communication to the masses</p>
+    
+                
+    
+    
+                  <div class="editForm" style="display:none">
+                  <h4>Edit</h4>
+                  <div class="form-group">
+                      <label>Title</label>
+                      <input type="text" class="form-control" placeholder="Enter a Title" value="${Title}">
+                  </div>
+                  
+                  <div class="form-group">
+                      <label>Text</label>
+                      <textarea rows="4" class="form-control" id="textInput" placeholder="Enter text">${Text}</textarea>
+                  </div>
+  
+                  <!--The user should not have the permission to change the author-->
+    
+                  <button onclick="blogEdit(this)" class="btn btn-lg btn-primary">Submit</button>
+                </div>
+                </div>    
+                </div>
+                </div>
+
+                <div class="singlePost">
+                    <br>
+                    <div class="card">
+                    <div class="card-body">
+                      <div class="row title-row">
+                        <div class="col-4"><h1 class="blogTitle">Tesla has increased the price of its ‘Full Self-Driving’ option to $10,000</h1></div>
+                        <div class="col-4"></div>
+                        <div class="col-2"></div>
+                        <div class="col-2"><button onclick="blogEditToggle(this)" class="btn btn-sm btn-info m-1">Edit</button> <button onclick="blogDelete(this)" class="btn btn-sm btn-danger m-1">Delete</button></div>
+                      </div>
+                    
+                    <i class="text-muted">by Darell Etherington</i><br/><br/>
+                    <p class="blogText">Tesla  has made good on founder and CEO Elon Musk’s promise to boost the price of its “Full Self-Driving” (FSD) software upgrade option, increasing it to $10,000 following the start of the staged rollout of a beta version of the software update last week. This boosts the price of the package $2,000 from its price before today, and it has steadily increased since last May.</p>
+        
+                    
+        
+        
+                      <div class="editForm" style="display:none">
+                      <h4>Edit</h4>
+                      <div class="form-group">
+                          <label>Title</label>
+                          <input type="text" class="form-control" placeholder="Enter a Title" value="${Title}">
+                      </div>
+                      
+                      <div class="form-group">
+                          <label>Text</label>
+                          <textarea rows="4" class="form-control" id="textInput" placeholder="Enter text">${Text}</textarea>
+                      </div>
+      
+                      <!--The user should not have the permission to change the author-->
+        
+                      <button onclick="blogEdit(this)" class="btn btn-lg btn-primary">Submit</button>
+                    </div>
+                    </div>    
+                    </div>
+                    </div>
+
+
+                    <div class="singlePost">
+                        <br>
+                        <div class="card">
+                        <div class="card-body">
+                          <div class="row title-row">
+                            <div class="col-4"><h1 class="blogTitle">Polestar recalls its newest EV for the second time this month</h1></div>
+                            <div class="col-4"></div>
+                            <div class="col-2"></div>
+                            <div class="col-2"><button onclick="blogEditToggle(this)" class="btn btn-sm btn-info m-1">Edit</button> <button onclick="blogDelete(this)" class="btn btn-sm btn-danger m-1">Delete</button></div>
+                          </div>
+                        
+                        <i class="text-muted">by Kristen Korosec</i><br/><br/>
+                        <p class="blogText">Polestar,  the electric vehicle brand that was spun out of Volvo Car Group, has issued another recall for its newest electric vehicle.
+
+                            The company is voluntarily recalling nearly 4,600 vehicles over what has been described as faulty inverters, Reuters reported. Polestar said in a statement that all affected customers will be notified, beginning November 2.</p>
+            
+                        
+            
+            
+                          <div class="editForm" style="display:none">
+                          <h4>Edit</h4>
+                          <div class="form-group">
+                              <label>Title</label>
+                              <input type="text" class="form-control" placeholder="Enter a Title" value="${Title}">
+                          </div>
+                          
+                          <div class="form-group">
+                              <label>Text</label>
+                              <textarea rows="4" class="form-control" id="textInput" placeholder="Enter text">${Text}</textarea>
+                          </div>
+          
+                          <!--The user should not have the permission to change the author-->
+            
+                          <button onclick="blogEdit(this)" class="btn btn-lg btn-primary">Submit</button>
+                        </div>
+                        </div>    
+                        </div>
+                        </div>
+
+
+                        <div class="singlePost">
+                            <br>
+                            <div class="card">
+                            <div class="card-body">
+                              <div class="row title-row">
+                                <div class="col-4"><h1 class="blogTitle">Apple One services subscription bundles start launching tomorrow</h1></div>
+                                <div class="col-4"></div>
+                                <div class="col-2"></div>
+                                <div class="col-2"><button onclick="blogEditToggle(this)" class="btn btn-sm btn-info m-1">Edit</button> <button onclick="blogDelete(this)" class="btn btn-sm btn-danger m-1">Delete</button></div>
+                              </div>
+                            
+                            <i class="text-muted">by Lucas Matney</i><br/><br/>
+                            <p class="blogText">Apple is launching its Apple One services bundle tomorrow, though the company’s workout service Fitness isn’t quite ready yet.
+
+                                On an earnings call today, CEO Tim Cook  revealed tomorrow’s rollout and called the service the “easiest way for users to enjoy Apple services.” In a conversation with Bloomberg, Apple CFO Luca Maestri revealed the launch timing for Fitness+ as well. The company also detailed that it has 585 million total paid services subscriptions and expects to reach 600 million before the end of the 2020 calendar year.</p>
+                
+                            
+                
+                
+                              <div class="editForm" style="display:none">
+                              <h4>Edit</h4>
+                              <div class="form-group">
+                                  <label>Title</label>
+                                  <input type="text" class="form-control" placeholder="Enter a Title" value="${Title}">
+                              </div>
+                              
+                              <div class="form-group">
+                                  <label>Text</label>
+                                  <textarea rows="4" class="form-control" id="textInput" placeholder="Enter text">${Text}</textarea>
+                              </div>
+              
+                              <!--The user should not have the permission to change the author-->
+                
+                              <button onclick="blogEdit(this)" class="btn btn-lg btn-primary">Submit</button>
+                            </div>
+                            </div>    
+                            </div>
+                            </div>
+
+
+            
+            </div>
+            
+          </div>
+          <br/><br/><br/><br/>
+      </div>
+
+
+
+
+    <script src="./myscript.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+</body>
+<footer class="container">
+    <p>&copy; Devvrat's Blog 2020</p>
+</footer>
+</html>
